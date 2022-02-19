@@ -2,8 +2,6 @@
 @Time    : 2022/2/17 14:41
 @Author  : leeguandon@gmail.com
 '''
-from similarflow.operations import add
-
 
 class Graph(object):
     """    computational graph
@@ -50,7 +48,20 @@ class Operation(object):
         pass
 
     def __add__(self, other):
+        from .operations import add
         return add(self, other)
+
+    def __neg__(self):
+        from .operations import negative
+        return negative(self)
+
+    def __sub__(self, other):
+        from .operations import add,negative
+        return add(self, negative(other))
+
+    def __mul__(self, other):
+        from .operations import matmul
+        return matmul(self, other)
 
 
 class Placeholder(object):
@@ -61,6 +72,22 @@ class Placeholder(object):
         self.output_nodes = []
 
         _default_graph.placeholders.append(self)
+
+    def __add__(self, other):
+        from .operations import add
+        return add(self, other)
+
+    def __neg__(self):
+        from .operations import negative
+        return negative(self)
+
+    def __sub__(self, other):
+        from .operations import add, negative
+        return add(self, negative(other))
+
+    def __mul__(self, other):
+        from .operations import matmul
+        return matmul(self, other)
 
 
 class Variable(object):
@@ -73,6 +100,22 @@ class Variable(object):
 
         _default_graph.variables.append(self)
 
+    def __add__(self, other):
+        from .operations import add
+        return add(self, other)
+
+    def __neg__(self):
+        from .operations import negative
+        return negative(self)
+
+    def __sub__(self, other):
+        from .operations import add, negative
+        return add(self, negative(other))
+
+    def __mul__(self, other):
+        from .operations import matmul
+        return matmul(self, other)
+
 
 class Constant(object):
     """没有输入节点，节点数据在运算过程中是不可变的
@@ -83,3 +126,19 @@ class Constant(object):
         self.output_nodes = []
 
         _default_graph.constants.append(self)
+
+    def __add__(self, other):
+        from .operations import add
+        return add(self, other)
+
+    def __neg__(self):
+        from .operations import negative
+        return negative(self)
+
+    def __sub__(self, other):
+        from .operations import add, negative
+        return add(self, negative(other))
+
+    def __mul__(self, other):
+        from .operations import matmul
+        return matmul(self, other)

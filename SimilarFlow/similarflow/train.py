@@ -2,7 +2,6 @@
 @Time    : 2022/2/18 15:32
 @Author  : leeguandon@gmail.com
 '''
-import numpy as np
 from queue import Queue
 
 from .graph import Operation, Variable, Constant

@@ -14,8 +14,8 @@ y = sf.Placeholder()
 w = sf.Variable([[1.0]])
 b = sf.Variable(0.0)
 
-linear = sf.add(sf.matmul(x, w), b)
-# linear = x * w + b
+# linear = sf.add(sf.matmul(x, w), b)
+linear = x * w + b
 
 loss = sf.reduce_sum(sf.square(sf.add(linear, sf.negative(y))))
 # loss = sf.reduce_sum(sf.square(linear - y))
