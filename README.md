@@ -9,6 +9,6 @@ https://blog.csdn.net/u012193416/article/details/122958900
 
 https://blog.csdn.net/u012193416/article/details/122969151?spm=1001.2014.3001.5502
 
-
+https://blog.csdn.net/u012193416/article/details/123019807?spm=1001.2014.3001.5501
 
 通过这两个方面来了解反向传播和梯度优化，更好理解深度学习的模式和流程。
